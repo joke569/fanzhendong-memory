@@ -47,7 +47,7 @@
 
 | 设置 / 成就 | 操作演示 |
 |---|---|
-| ![设置](docs/screenshots/settings.png) | ![演示](docs/demo.gif) |
+| ![设置](docs/screenshots/settings.png) | [MP4 演示](docs/demo.mp4) · [GIF 预览](docs/demo.gif) |
 
 > 截图来自项目同源 Web/PWA 预览版；HarmonyOS HAP 使用同一套页面结构、数据与视觉资产。HAP 构建产物见 `release/`，真机安装需在 DevEco Studio 中配置签名。
 
@@ -255,3 +255,4 @@ PWA 支持：
 **FAN ZHENDONG MEMORY ARCHIVE**  
 生涯是主线，球衣是颜色，球拍是手感。  
 三条线最终指向同一个人。
+
