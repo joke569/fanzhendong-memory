@@ -1,0 +1,29 @@
+# HarmonyOS / DevEco
+.hvigor/
+.idea/
+oh_modules/
+entry/.preview/
+entry/build/
+build/
+*.hap
+*.app
+local.properties
+
+# Raw photo sources (only final assets are shipped)
+raw_assets/
+web/_shots/
+docs/_desktop*.png
+web/_shot.png
+
+# Temp
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+
+# Delivery archives
+*.zip
+
+# Keep the built HAP for delivery
+!release/*.hap
+
