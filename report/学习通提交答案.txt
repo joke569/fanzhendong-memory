@@ -3,7 +3,8 @@
 作品名称：樊振东 · 三线回忆录
 选题：主题一（交互式回忆探索）
 姓名（学号）：章瑞（20240313140）
-GitHub 仓库链接：【必填：完整仓库 URL】
-本人 GitHub 账号：【必填：GitHub 用户名】
+GitHub 仓库链接：https://github.com/joke569/fanzhendong-memory
+本人 GitHub 账号：joke569
 报告文件：移动应用开发基础-20240313140-章瑞-期末大作业.docx
 备注：HarmonyOS HAP 不能安装到 iPhone；iPhone 请使用 web/ 的 PWA（Safari 添加到主屏幕）。
+

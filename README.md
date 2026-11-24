@@ -1,4 +1,4 @@
-# 樊振东 · 三线回忆录
+﻿# 樊振东 · 三线回忆录
 
 > 从第一块球拍到巴黎，再到当下。  
 > 一份关于樊振东「生涯 / 球衣 / 球拍」的数字记忆档案。
@@ -232,8 +232,8 @@ PWA 支持：
 
 ## 10. 仓库与提交
 
-- GitHub 仓库：`https://github.com/<your-github-username>/fanzhendong-memory`（提交前替换为实际地址）
-- 个人 GitHub 账号：`<your-github-username>`
+- GitHub 仓库：`https://github.com/joke569/fanzhendong-memory`
+- 个人 GitHub 账号：`joke569`
 - 本地仓库包含分阶段 Commit：项目初始化、数据与资源、主界面、详情与持久化、Web/PWA、文档与报告。
 
 > 学习通答案处必须同时填写有效 GitHub 仓库链接与本人 GitHub 账号，否则期末成绩计 0 分。
@@ -255,4 +255,6 @@ PWA 支持：
 **FAN ZHENDONG MEMORY ARCHIVE**  
 生涯是主线，球衣是颜色，球拍是手感。  
 三条线最终指向同一个人。
+
+
 

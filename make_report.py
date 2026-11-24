@@ -137,15 +137,15 @@ info = [
     ("作品名称", "樊振东 · 三线回忆录"),
     ("指定主题", "主题一（交互式回忆探索）"),
     ("姓名（学号）", "章瑞（20240313140）"),
-    ("GitHub账号", "【提交前填写：本人 GitHub 用户名】"),
-    ("GitHub仓库链接", "【提交前填写：完整仓库 URL，与学习通一致】"),
+    ("GitHub账号", "joke569"),
+    ("GitHub仓库链接", "https://github.com/joke569/fanzhendong-memory"),
     ("小组成员", "无（个人独立完成）"),
     ("开发环境", "DevEco Studio 5.0.13 / HarmonyOS SDK 5.0.5(17) / API 17"),
 ]
 for i, (k, v) in enumerate(info, start=1):
     cell_text(t.rows[i].cells[0], k, 9, True, align=WD_ALIGN_PARAGRAPH.CENTER)
     cell_text(t.rows[i].cells[1], v, 9, False,
-              color=(0xC0, 0x39, 0x2B) if "提交前填写" in v else None)
+              color=None)
 
 # ---------------- 1.2 项目简介 ----------------
 p28 = paras[28]
@@ -420,6 +420,7 @@ except Exception:
 
 doc.save(OUT)
 print("saved", OUT)
+
 
 
 
