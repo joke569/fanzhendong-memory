@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><style>
+*{box-sizing:border-box}body{margin:0;background:#f7f8fb;font-family:"Microsoft YaHei","PingFang SC",sans-serif;color:#172b4d}
+.canvas{width:1400px;height:940px;position:relative;padding:42px 52px;background:
+ radial-gradient(800px 420px at 15% 0%, #eaf0fb, transparent 60%),
+ radial-gradient(680px 380px at 92% 12%, #fff2db, transparent 60%), #f7f8fb;}
+h1{font-size:30px;margin:0 0 4px;letter-spacing:1px}p.sub{margin:0 0 20px;font-size:12px;color:#64748b;letter-spacing:1.2px}
+.box{position:absolute;border-radius:14px;padding:11px 14px;background:#fff;border:1px solid #dfe6f1;box-shadow:0 8px 24px rgba(23,43,77,.05);z-index:2}
+.box b{display:block;font-size:13px;margin-bottom:3px}.box span{display:block;font-size:10px;line-height:1.55;color:#64748b}
+.start{background:#172b4d;color:#fff;border-color:#172b4d}.start span{color:#cbd5e1}
+.gold{background:#fff7e8;border-color:#efd39e}.blue{background:#edf4ff;border-color:#c7d9f8}.green{background:#edf9f3;border-color:#bfe6d6}.violet{background:#f4efff;border-color:#d9cdf7}
+.note{position:absolute;left:52px;bottom:22px;width:760px;font-size:10.5px;line-height:1.8;color:#64748b}
+.legend{position:absolute;right:52px;bottom:24px;font-size:10px;color:#94a3b8;letter-spacing:1px}
+svg{position:absolute;inset:0;width:1400px;height:940px;pointer-events:none;z-index:1}
+</style></head><body><div class="canvas">
+<svg>
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#94a3b8"/></marker></defs>
+<path d="M242 155 H278" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#a)" fill="none"/>
+<path d="M500 155 H538" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#a)" fill="none"/>
+<path d="M770 155 H808" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#a)" fill="none"/>
+<path d="M960 198 V232 H285 V288" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#a)" fill="none"/>
+<path d="M960 232 H605 V288" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#a)" fill="none"/>
+<path d="M960 232 H925 V288" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#a)" fill="none"/>
+<path d="M605 368 V448" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#a)" fill="none"/>
+<path d="M650 550 V590 H310 V618" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#a)" fill="none"/>
+<path d="M650 550 V618" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#a)" fill="none"/>
+<path d="M650 550 V590 H1005 V618" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#a)" fill="none"/>
+<path d="M650 708 V778" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#a)" fill="none"/>
+<path d="M780 807 H1170 V198" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="5 4" fill="none" marker-end="url(#a)"/>
+</svg>
+
+<h1>核心业务流程 · 从启动到回忆恢复</h1>
+<p class="sub">STATE-DRIVEN · PREFERENCES · CONDITIONAL ACHIEVEMENTS</p>
+
+<div class="box start" style="left:52px;top:120px;width:190px;height:70px"><b>启动 App</b><span>EntryAbility → Index</span></div>
+<div class="box blue" style="left:280px;top:120px;width:220px;height:70px"><b>读取 Preferences</b><span>favorites / visited / lastLine / lastId</span></div>
+<div class="box blue" style="left:540px;top:120px;width:230px;height:70px"><b>恢复上次回忆</b><span>找到 lastId 对应条目；失败则回到第一条</span></div>
+<div class="box gold" style="left:810px;top:116px;width:300px;height:82px"><b>主界面 · 回忆流</b><span>Swiper 自动轮播 + Marquee 字幕 + 胶片带 + 三线 Dock</span></div>
+
+<div class="box blue" style="left:160px;top:290px;width:250px;height:78px"><b>选择一条线</b><span>生涯 / 球衣 / 球拍 → 过滤 items</span></div>
+<div class="box blue" style="left:480px;top:290px;width:250px;height:78px"><b>滑动 / 点击</b><span>切换当前条目；点击进入详情</span></div>
+<div class="box blue" style="left:800px;top:290px;width:250px;height:78px"><b>时间线 / 设置</b><span>筛选列表；减少动态效果 / 清空数据</span></div>
+
+<div class="box gold" style="left:480px;top:450px;width:340px;height:100px"><b>详情页 · DetailPage</b><span>大图 · 日期 · 长文 · 引用 · 标签 · 配色/配置 / 时间</span></div>
+
+<div class="box green" style="left:170px;top:620px;width:280px;height:88px"><b>收藏 / 回忆手记</b><span>toggleFavorite；saveNote(id, text)</span></div>
+<div class="box green" style="left:520px;top:620px;width:260px;height:88px"><b>MemoryStore</b><span>Preferences.put + flush</span></div>
+<div class="box violet" style="left:840px;top:620px;width:330px;height:88px"><b>条件分支 · 成就</b><span>visited ≥ 10 → 巴黎的金色雨；favorites ≥ 5 → 三线收藏家</span></div>
+
+<div class="box green" style="left:520px;top:780px;width:260px;height:55px"><b>重新启动</b><span>读取并恢复 → 回到主界面</span></div>
+
+<div class="note">说明：三条线共享同一套 MemoryItem 模型与 Preferences；用户的选择会改变当前线、条目、收藏与手记，并在重启后恢复。成就规则由 visited / favorites 的数量条件触发，是应用内的轻量分支状态。</div>
+<div class="legend">FAN ZHENDONG MEMORY ARCHIVE · CORE FLOW · 2026</div>
+</div></body></html>

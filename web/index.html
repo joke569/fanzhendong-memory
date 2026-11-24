@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#06070c" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="樊振东" />
+  <meta name="description" content="樊振东 · 三线回忆录：生涯、球衣与球拍的数字记忆档案。" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="assets/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>樊振东 · 三线回忆录</title>
+</head>
+<body>
+  <div class="app" id="app">
+    <div class="ambient" id="ambient"></div>
+    <div class="ambient-tint"></div>
+    <div class="grain"></div>
+
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">FZD</span>
+        <div class="brand-copy">
+          <h1>樊振东</h1>
+          <p>三线回忆录 <span>/</span> MEMORY ARCHIVE</p>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button class="glass-pill" id="allBtn" type="button">全部</button>
+        <span class="progress-pill" id="progressText">01 / 22</span>
+        <button class="icon-btn" id="timelineBtn" aria-label="时间线" type="button">
+          <svg viewBox="0 0 24 24"><path d="M5 7h14M5 12h10M5 17h14"/></svg>
+        </button>
+        <button class="icon-btn" id="settingsBtn" aria-label="设置" type="button">
+          <svg viewBox="0 0 24 24"><path d="M12 8.5A3.5 3.5 0 1 0 12 15.5A3.5 3.5 0 1 0 12 8.5M19 12c0-.5 0-1-.1-1.5l2-1.5-2-3.4-2.3 1a7 7 0 0 0-2.6-1.5L13.6 2h-3.2l-.4 3.1A7 7 0 0 0 7.4 6.6l-2.3-1-2 3.4 2 1.5a7 7 0 0 0 0 3l-2 1.5 2 3.4 2.3-1a7 7 0 0 0 2.6 1.5l.4 3.1h3.2l.4-3.1a7 7 0 0 0 2.6-1.5l2.3 1 2-3.4-2-1.5c.1-.5.1-1 .1-1.5Z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="stage">
+      <section class="hero-shell">
+        <div class="hero-card" id="heroCard" role="button" tabindex="0" aria-label="打开当前回忆">
+          <img id="heroImg" class="hero-img" alt="" />
+          <div class="hero-shade"></div>
+          <div class="hero-top">
+            <span class="line-tag" id="heroLine">CAREER</span>
+            <span class="date-tag" id="heroDate">2002.01</span>
+          </div>
+          <button class="fav-btn" id="favBtn" type="button" aria-label="收藏">
+            <svg viewBox="0 0 24 24"><path d="M12 20.3 4.5 13a4.6 4.6 0 0 1 0-6.5 4.6 4.6 0 0 1 6.5 0l1 1 1-1a4.6 4.6 0 0 1 6.5 0 4.6 4.6 0 0 1 0 6.5Z"/></svg>
+          </button>
+          <div class="hero-bottom">
+            <div class="hero-year" id="heroYear">2002</div>
+            <h2 id="heroTitle">第一块球拍</h2>
+            <p id="heroSubtitle">5岁 · 广州海珠区少年宫</p>
+            <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marqueeTrack"></div></div>
+          </div>
+          <div class="progress-line"><span id="progressLine"></span></div>
+        </div>
+      </section>
+
+      <div class="filmstrip-wrap">
+        <div class="filmstrip" id="filmstrip"></div>
+      </div>
+    </main>
+
+    <nav class="dock" aria-label="回忆线选择">
+      <button class="dock-btn" data-line="career" type="button">
+        <span class="dock-no">01</span><span class="dock-label">生涯</span><span class="dock-en">CAREER</span>
+      </button>
+      <button class="dock-btn" data-line="jersey" type="button">
+        <span class="dock-no">02</span><span class="dock-label">球衣</span><span class="dock-en">JERSEY</span>
+      </button>
+      <button class="dock-btn" data-line="paddle" type="button">
+        <span class="dock-no">03</span><span class="dock-label">球拍</span><span class="dock-en">PADDLE</span>
+      </button>
+    </nav>
+
+    <div class="toast" id="toast"></div>
+  </div>
+
+  <div class="backdrop" id="backdrop"></div>
+
+  <aside class="sheet detail-sheet" id="detailSheet" aria-hidden="true">
+    <div class="sheet-handle"></div>
+    <button class="sheet-close" data-close type="button" aria-label="关闭">×</button>
+    <div class="detail-scroll" id="detailScroll">
+      <div class="detail-hero">
+        <img id="detailImg" alt="" />
+        <div class="detail-hero-shade"></div>
+        <div class="detail-hero-meta">
+          <span class="line-tag" id="detailLine">CAREER</span>
+          <span class="date-tag" id="detailDate">2002.01</span>
+        </div>
+        <div class="detail-hero-title">
+          <span id="detailYear">2002</span>
+          <h2 id="detailTitle">第一块球拍</h2>
+        </div>
+      </div>
+      <div class="detail-body">
+        <p class="detail-sub" id="detailSubtitle"></p>
+        <p class="detail-desc" id="detailDesc"></p>
+        <blockquote id="detailQuote"></blockquote>
+        <div class="detail-tags" id="detailTags"></div>
+        <div class="detail-extra" id="detailExtra"></div>
+        <div class="note-card">
+          <div class="note-head"><span>我的回忆手记</span><span id="noteStatus">自动保存</span></div>
+          <textarea id="noteInput" rows="4" maxlength="240" placeholder="写下你与这段记忆的连接…"></textarea>
+          <div class="note-actions">
+            <button id="saveNoteBtn" class="primary-btn" type="button">保存手记</button>
+            <button id="detailFavBtn" class="ghost-btn" type="button">收藏这段</button>
+          </div>
+        </div>
+        <div class="detail-source" id="detailSource"></div>
+        <div class="detail-nav">
+          <button id="prevBtn" type="button">← 上一段</button>
+          <button id="nextBtn" type="button">下一段 →</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <aside class="sheet timeline-sheet" id="timelineSheet" aria-hidden="true">
+    <div class="sheet-handle"></div>
+    <button class="sheet-close" data-close type="button" aria-label="关闭">×</button>
+    <div class="sheet-head">
+      <p class="eyebrow">THE LONG VIEW</p>
+      <h2>一条时间线</h2>
+      <p class="sheet-desc">把 22 段记忆按时间排好，从第一块球拍到当下。</p>
+    </div>
+    <div class="timeline-filters" id="timelineFilters">
+      <button class="chip active" data-tl="all" type="button">全部</button>
+      <button class="chip" data-tl="career" type="button">生涯</button>
+      <button class="chip" data-tl="jersey" type="button">球衣</button>
+      <button class="chip" data-tl="paddle" type="button">球拍</button>
+    </div>
+    <div class="timeline-list" id="timelineList"></div>
+  </aside>
+
+  <aside class="sheet settings-sheet" id="settingsSheet" aria-hidden="true">
+    <div class="sheet-handle"></div>
+    <button class="sheet-close" data-close type="button" aria-label="关闭">×</button>
+    <div class="sheet-head">
+      <p class="eyebrow">SETTINGS</p>
+      <h2>回忆设置</h2>
+    </div>
+    <div class="settings-body">
+      <label class="setting-row">
+        <span><strong>减少动态效果</strong><small>关闭自动播放与流动字幕</small></span>
+        <input type="checkbox" id="motionToggle" />
+        <i class="switch"></i>
+      </label>
+      <button class="setting-row as-button" id="clearDataBtn" type="button">
+        <span><strong>清空收藏与手记</strong><small>只清除本地数据，不影响照片</small></span>
+        <span class="chevron">›</span>
+      </button>
+      <div class="journey-card">
+        <div class="journey-head"><span>探索进度</span><strong id="journeyCount">0 / 22</strong></div>
+        <div class="journey-bar"><span id="journeyBar"></span></div>
+        <p id="journeyHint">继续探索，解锁隐藏回忆。</p>
+        <p id="achievementText" class="achievement"></p>
+      </div>
+      <div class="about-card">
+        <p class="eyebrow">ABOUT THIS ARCHIVE</p>
+        <p>这是一份独立完成的课程作品，以“生涯 / 球衣 / 球拍”三条线回看樊振东。照片来自公开报道，仅用于课程学习；插画与界面为原创。</p>
+        <p class="credit-line">Photo credits: 新华社 / 人民日报 / 新浪体育 / 萨尔布吕肯俱乐部。版权归原作者所有。</p>
+        <p class="credit-line">Fan Zhendong Memory Archive · 2026 · v1.0</p>
+      </div>
+    </div>
+  </aside>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+
+

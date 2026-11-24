@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><style>
+*{box-sizing:border-box}body{margin:0;background:#f7f8fb;font-family:"Microsoft YaHei","PingFang SC",sans-serif;color:#172b4d}
+.canvas{width:1400px;height:900px;padding:44px 54px;position:relative;background:
+ radial-gradient(800px 400px at 10% 0%, #eaf0fb, transparent 60%),
+ radial-gradient(700px 400px at 95% 8%, #fff4e2, transparent 60%), #f7f8fb;}
+h1{font-size:31px;margin:0 0 4px;letter-spacing:1px}p.sub{margin:0 0 24px;color:#64748b;font-size:13px;letter-spacing:1px}
+.layer{position:relative;border-radius:18px;border:1px solid #dce3ee;background:rgba(255,255,255,.82);padding:16px 18px;margin-bottom:18px;box-shadow:0 12px 30px rgba(23,43,77,.05)}
+.layer h2{font-size:12px;margin:0 0 12px;color:#2563eb;letter-spacing:2px}
+.row{display:flex;gap:12px;align-items:stretch}
+.box{flex:1;border-radius:14px;padding:13px 14px;background:#fff;border:1px solid #dfe6f1;min-height:62px}
+.box strong{display:block;font-size:14px;margin-bottom:4px}.box span{display:block;font-size:10.5px;color:#64748b;line-height:1.6}
+.blue{background:#edf4ff;border-color:#c7d9f8}.gold{background:#fff7e8;border-color:#f0d6a4}.green{background:#edf9f3;border-color:#bfe6d6}.violet{background:#f4efff;border-color:#d9cdf7}
+.badge{position:absolute;right:18px;top:16px;background:#172b4d;color:#fff;border-radius:999px;padding:6px 12px;font-size:10px;letter-spacing:1px}
+.note{position:absolute;right:54px;bottom:38px;width:340px;border-left:3px solid #e7b768;background:#fffaf0;border-radius:0 12px 12px 0;padding:12px 16px;font-size:11px;line-height:1.8;color:#5b4a2c}
+.footer{position:absolute;left:54px;bottom:38px;font-size:10px;color:#94a3b8;letter-spacing:1.2px}
+svg{position:absolute;inset:0;width:1400px;height:900px;pointer-events:none;z-index:0}
+</style></head><body><div class="canvas">
+<svg>
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#94a3b8"/></marker></defs>
+<path d="M700 225 L700 255" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M700 405 L700 435" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M700 585 L700 615" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#a)"/>
+</svg>
+<h1>“樊振东 · 三线回忆录”系统架构</h1>
+<p class="sub">ARKTS / ARKUI · STAGE MODEL · PREFERENCES · 独立完成</p>
+
+<div class="layer" style="height:168px">
+  <div class="badge">本人负责：全部模块</div>
+  <h2>01 · 表现层 / ArkUI</h2>
+  <div class="row" style="height:100px">
+    <div class="box blue"><strong>Index 回忆流</strong><span>Swiper 自动轮播 · Marquee 流动字幕 · Filmstrip 胶片带 · LineDock 三线切换</span></div>
+    <div class="box blue"><strong>Detail 详情</strong><span>大图 · 长文 · 标签 · 收藏 · 回忆手记 · 上一段/下一段</span></div>
+    <div class="box blue"><strong>Timeline 时间线</strong><span>全部 / 生涯 / 球衣 / 球拍筛选 · 条目跳转</span></div>
+    <div class="box blue"><strong>Settings 设置</strong><span>减少动态效果 · 清空数据 · 探索进度 · 成就解锁</span></div>
+  </div>
+</div>
+
+<div class="layer" style="height:150px">
+  <h2>02 · 业务层 / 状态与规则</h2>
+  <div class="row" style="height:82px">
+    <div class="box gold"><strong>MemoryState</strong><span>favorites / visited / lastId / lastLine / reduceMotion</span></div>
+    <div class="box gold"><strong>探索与筛选</strong><span>三线过滤、条目索引、上一段/下一段、恢复上次位置</span></div>
+    <div class="box gold"><strong>成就规则</strong><span>visited ≥ 10 解锁“巴黎的金色雨”；favorites ≥ 5 解锁“三线收藏家”</span></div>
+    <div class="box gold"><strong>页面导航</strong><span>router.pushUrl / replaceUrl / back</span></div>
+  </div>
+</div>
+
+<div class="layer" style="height:150px">
+  <h2>03 · 数据层 / 本地持久化</h2>
+  <div class="row" style="height:82px">
+    <div class="box green"><strong>MemoryData</strong><span>22 条记忆：10 生涯 + 7 球衣 + 5 球拍</span></div>
+    <div class="box green"><strong>MemoryModels</strong><span>MemoryItem / MemoryLine / MemoryState / DetailParams</span></div>
+    <div class="box green"><strong>MemoryStore</strong><span>@kit.ArkData Preferences：JSON 数组 + note_&lt;id&gt; 键</span></div>
+    <div class="box green"><strong>异常处理</strong><span>JSON.parse try/catch；空状态回退；无数据默认值</span></div>
+  </div>
+</div>
+
+<div class="layer" style="height:138px;margin-bottom:0">
+  <h2>04 · 资源与跨端预览</h2>
+  <div class="row" style="height:70px">
+    <div class="box violet"><strong>视觉资产</strong><span>22 张 1080×1440 海报 · 原创插画 + 公开报道资料图</span></div>
+    <div class="box violet"><strong>应用图标</strong><span>layered_image · startIcon · AppScope / entry resources</span></div>
+    <div class="box violet"><strong>HarmonyOS HAP</strong><span>DevEco Studio 5.0.13 · API 17 · Stage 模型</span></div>
+    <div class="box violet"><strong>Web / PWA</strong><span>iPhone Safari 可“添加到主屏幕”的跨端预览版</span></div>
+  </div>
+</div>
+
+<div class="note"><b>数据流：</b>用户操作 → 页面状态（@State）→ MemoryStore → Preferences 文件；重新启动时由 MemoryStore 读取并恢复 lastLine / lastId / favorites / notes。</div>
+<div class="footer">FAN ZHENDONG MEMORY ARCHIVE · SYSTEM ARCHITECTURE · 2026</div>
+</div></body></html>
